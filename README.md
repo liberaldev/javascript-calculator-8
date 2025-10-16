@@ -1,6 +1,6 @@
 # javascript-calculator-precourse
 
-- [x] 입력 및 try-catch 예외 처리 구현.
+- [x] 입력 기능 구현.
 - [x] 빈 문자열은 0으로 반환하는 기능 구현.
 - [x] 구분자 배열 구현.
 - [x] 커스텀 구분자 추출 기능 구현.
