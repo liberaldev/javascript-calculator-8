@@ -6,21 +6,19 @@ class App {
     return str.split('\\n')[0].split('//')[1]
   }
 
-  async calculator() {
-    const STR = await Console.readLineAsync('덧셈할 문자열을 입력해 주세요.\n')
-
-    if (STR === '')
+  async calculator(str) {
+    if (str === '')
       return 0
 
     const DELIMITERS = [',', ':']
 
     let numbers
 
-    if (this.extractCustomDelimiter(STR)) {
-      DELIMITERS.push(this.extractCustomDelimiter(STR))
-      numbers = STR.split('\\n')[1].split(new RegExp(`[${DELIMITERS.join('')}]`))
+    if (this.extractCustomDelimiter(str)) {
+      DELIMITERS.push(this.extractCustomDelimiter(str))
+      numbers = str.split('\\n')[1].split(new RegExp(`[${DELIMITERS.join('')}]`))
     } else {
-      numbers = STR.split(new RegExp(`[${DELIMITERS.join('')}]`))
+      numbers = str.split(new RegExp(`[${DELIMITERS.join('')}]`))
     }
 
     if (numbers.find(num => Number.isNaN(Number(num)))) {
@@ -35,7 +33,8 @@ class App {
   }
 
   async run() {
-    Console.print('결과 : ' + await this.calculator())
+    const STR = await Console.readLineAsync('덧셈할 문자열을 입력해 주세요.\n')
+    Console.print('결과 : ' + await this.calculator(STR))
   }
 }
 
