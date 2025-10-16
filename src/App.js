@@ -30,6 +30,8 @@ class App {
     if (numbers.find(num => num < 0)) {
       throw new Error('[ERROR] 양수가 아닌 숫자가 포함되어 있습니다')
     }
+
+    return numbers.reduce((acc, cur) => acc + Number(cur), 0)
   }
 
   async run() {
