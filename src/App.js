@@ -22,6 +22,14 @@ class App {
     } else {
       numbers = STR.split(new RegExp(`[${DELIMITERS.join('')}]`))
     }
+
+    if (numbers.find(num => Number.isNaN(Number(num)))) {
+      throw new Error('[ERROR] 숫자가 아닌 문자가 포함되어 있습니다')
+    }
+
+    if (numbers.find(num => num < 0)) {
+      throw new Error('[ERROR] 양수가 아닌 숫자가 포함되어 있습니다')
+    }
   }
 
   async run() {
