@@ -14,8 +14,14 @@ class App {
 
     const DELIMITERS = [',', ':']
 
-    if (this.extractCustomDelimiter(STR))
+    let numbers
+
+    if (this.extractCustomDelimiter(STR)) {
       DELIMITERS.push(this.extractCustomDelimiter(STR))
+      numbers = STR.split('\\n')[1].split(new RegExp(`[${DELIMITERS.join('')}]`))
+    } else {
+      numbers = STR.split(new RegExp(`[${DELIMITERS.join('')}]`))
+    }
   }
 
   async run() {
