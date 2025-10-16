@@ -33,11 +33,7 @@ class App {
   }
 
   async run() {
-    try {
-      Console.print('결과 : ' + await this.calculator())
-    } catch (error) {
-      Console.print(`[ERROR] ${error.message}`)
-    }
+    Console.print('결과 : ' + await this.calculator())
   }
 }
 
