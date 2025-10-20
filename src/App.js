@@ -2,8 +2,19 @@ import { Console } from '@woowacourse/mission-utils';
 
 class App {
   #extractCustomDelimiter(str) {
-    if (!str.startsWith('//')) return null;
-    return str.split('\\n')[0].split('//')[1];
+    const PARTS = str.split('\\n');
+
+    if (PARTS.length < 2) {
+      throw new Error('[ERROR] 구분자 형식이 올바르지 않습니다');
+    }
+
+    const DELIMITER = PARTS[0].substring(2);
+
+    if (DELIMITER === '') {
+      throw new Error('[ERROR] 구분자가 비어있습니다');
+    }
+
+    return DELIMITER;
   }
 
   async #calculator(str) {
