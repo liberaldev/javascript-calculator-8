@@ -1,7 +1,7 @@
 import { Console } from '@woowacourse/mission-utils';
 
 class App {
-  static #extractCustomDelimiter(str) {
+  #extractCustomDelimiter(str) {
     if (!str.startsWith('//')) return null;
     return str.split('\\n')[0].split('//')[1];
   }
